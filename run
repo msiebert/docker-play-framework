@@ -1,6 +1,7 @@
 current=$(pwd)
 docker stop dev-null
 docker rm dev-null
+docker rm client
 cd dev-null
 sbt docker:publishLocal
 docker run -d --name dev-null dev-null:1.0-SNAPSHOT
