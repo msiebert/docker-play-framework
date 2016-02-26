@@ -1,9 +1,12 @@
 package controllers
 
+import play.api.Logger
 import play.api.mvc.{Action, Controller}
 import scalaj.http._
 
 object Application extends Controller {
+  private[this] val logger = Logger(this.getClass)
+
   def index = Action {
     Ok(views.html.index())
   }
@@ -20,7 +23,9 @@ object Application extends Controller {
         Ok
       }
     } catch {
-      case _ : Throwable => InternalServerError("DOCKER_FAIL")
+      case e: Throwable =>
+        logger.error("error while making request to dev-null", e)
+        InternalServerError("DOCKER_FAIL")
     }
   }
 }
