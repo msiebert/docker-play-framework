@@ -1,0 +1,11 @@
+current=$(pwd)
+docker stop dev-null
+docker rm dev-null
+cd dev-null
+sbt docker:publishLocal
+docker run -d --name dev-null dev-null:1.0-SNAPSHOT
+cd $current
+cd client
+sbt docker:publishLocal
+docker run -p 9000:9000 client:1.0-SNAPSHOT
+cd $current
