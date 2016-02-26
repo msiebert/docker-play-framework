@@ -14,7 +14,7 @@ object Application extends Controller {
   def post = Action { request =>
     val text = request.body.asFormUrlEncoded.get("text")(0)
     try {
-      val responseCode = Http("dev-null:9000/").postForm(Seq("text" -> text)).asString.code
+      val responseCode = Http("http://dev-null:9000/").postForm(Seq("text" -> text)).asString.code
 
       // yeah, I know it's not RESTful...
       if (responseCode != 200) {

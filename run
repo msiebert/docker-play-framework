@@ -7,5 +7,4 @@ docker run -d --name dev-null dev-null:1.0-SNAPSHOT
 cd $current
 cd client
 sbt docker:publishLocal
-docker run -p 9000:9000 client:1.0-SNAPSHOT
-cd $current
+docker run -p 9000:9000 -it --link dev-null:dev-null --name client client:1.0-SNAPSHOT
