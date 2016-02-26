@@ -1,6 +1,8 @@
+client/logs
 client/target
 client/project/target
 client/project/project
+dev-null/logs
 dev-null/target
 dev-null/project/target
 dev-null/project/project

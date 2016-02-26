@@ -1,1 +1,3 @@
 GET    /                             controllers.Application.index
+POST   /                             controllers.Application.post
+GET    /assets/*file                 controllers.Assets.at(path="/public", file)

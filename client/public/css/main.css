@@ -1,0 +1,33 @@
+html {
+  background-color: black;
+  color: rgb(43, 255, 0);
+  font-family: monospace;
+}
+
+h1 {
+  padding-left: 20px;
+}
+
+.prompt, .result {
+  padding: 5px 20px;
+  font-size: 14px;
+  display: block;
+}
+
+.result {
+  padding-left: 50px;
+}
+
+.result.error {
+  color: red;
+}
+
+input[type="text"] {
+  width: 300px;
+}
+
+.prompt::before {
+  content: '$';
+  font-weight: 900;
+  padding-right: 10px;
+}
